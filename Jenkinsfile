@@ -3,10 +3,6 @@ pipeline{
 
 	agent any
 
-	environment {
-		DOCKERHUB_CREDENTIALS=credentials('docker-premasaik')
-		POD_NAME = "tmp"
-	}
   
 	stages {
     
@@ -17,11 +13,5 @@ pipeline{
 				sh 'mvn test'
 			}
 		}
-
-	post {
-		always {
-			sh 'docker logout '
-		}
-	}
 
 }
