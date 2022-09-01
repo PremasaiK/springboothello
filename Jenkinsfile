@@ -6,12 +6,14 @@ pipeline{
   
 	stages {
     
-		stage('Build') {
-
-			steps {
-				echo "${BUILD_NUMBER}"
-				sh 'mvn test'
-			}
-		}
-
+	stage('Build') {
+        	steps {
+        	sh "mvn compile"  	 
+        	}
+    	}
+    	stage("Unit test") {          	 
+        	steps {  	 
+            	sh "mvn test"          	 
+       	    }
+	}
 }
